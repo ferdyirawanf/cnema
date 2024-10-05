@@ -1,4 +1,4 @@
-# Spring Boot Applications With Docker and Kubernetes 
+# Spring Boot Application With Docker and Kubernetes 
 
 An application called Cnema has two user roles: admin and customer. The admin role can manage or organize cinema-related data such as adding, deleting, and modifying data for film genres, films, cinemas, theaters, daily film screening sessions, food and beverages (FnB), merchandise, and viewing customer transactions. The customer role can view lists of film genres, films (with various filters), FnB, and merchandise from a film, as well as make transactions to purchase tickets (for more than one seat), FnB, and merchandise. Payments are simulated using the Midtrans Payment Gateway with the payment type being e-wallet (Gopay using Qris).
 
