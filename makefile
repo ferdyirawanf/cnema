@@ -13,9 +13,8 @@ DB_PASSWORD := cnema
 DB_NAME := cnema
 JWT_SECRET := 123456E89765432456786543F6786543245678932473238472348F4124124E
 JWT_EXPIRATION := 8640000
-CLIENT_KEY := SB-Mid-client-ELVhmoOfOnbkmQHS
-SERVER_KEY := SB-Mid-server-RPg0qJ1GKW9CTqnm2Xj72vSA
-
+CLIENT_KEY := {your-midtrans-client-key}
+SERVER_KEY := {your-midtrans-server-key}
 clean:
 	@echo "Remove existing app $(APP_NAME)..."
 	@rm -rf $(TARGET_FOLDER)
