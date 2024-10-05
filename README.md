@@ -210,3 +210,11 @@ An application called Cnema has two user roles: admin and customer. The admin ro
      ```
      
       Make sure the ``` app-service ``` already has an ``` EXTERNAL-IP ```, External IP that will be used for external access.
+
+## Author 
+
+1. Cindy Nadira Elfarisa F.
+2. Ferdy Irawan FIrdaus
+3. Fitri Nur Azizah
+4. Ilham Maharsa Paramarta
+5. Muhammad Irfan Alif 
