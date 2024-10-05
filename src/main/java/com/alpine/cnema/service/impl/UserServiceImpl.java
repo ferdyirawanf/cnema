@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
     private final JwtService jwtService;
     private final AuthenticationManager authManager;
 
-    // additional and under construction - irfan (24/9/2024)
     private static final Set<String> VALID_TLDS = new HashSet<>(Messages.VALID_TLDS);
 
 
@@ -40,19 +39,16 @@ public class UserServiceImpl implements UserService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, Messages.USERNAME_ALREADY_EXIST);
         }
 
-        //under construction - irfan (24/9/2024)
         // check nomor telepon sudah ada atau belum
         if (userRepository.findByPhone(req.getPhone()).isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, Messages.PHONE_ALREADY_EXIST);
         }
 
-        // under construction - irfan (24/9/2024)
         // check email sudah ada atau belum
         if (userRepository.findByEmail(req.getEmail()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, Messages.EMAIL_ALREADY_EXIST);
         }
 
-        // under construction - irfan (24/9/2024)
         // check email apakah email diinput dengan domain yang valid; ex: user@gmail.com or user@company.co.id
         if (!isValidEmail(req.getEmail())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, Messages.EMAIL_INVALID_FORMAT);
@@ -60,9 +56,9 @@ public class UserServiceImpl implements UserService {
 
         User user = User.builder()
                 .username(req.getUsername())
-                .email(req.getEmail()) // irfan (24/9/2024)
-                .phone(req.getPhone()) // irfan (24/9/2024
-                .address(req.getAddress()) // irfan (24/9/2024)
+                .email(req.getEmail()) 
+                .phone(req.getPhone()) 
+                .address(req.getAddress()) 
                 .password(passwordEncoder.encode(req.getPassword()))
                 .role(Role.CUSTOMER)
                 .build();
@@ -92,14 +88,13 @@ public class UserServiceImpl implements UserService {
 
         User admin = User.builder()
                 .username("admin")
-                .email("admin@example.com") // irfan (24/9/2024)
+                .email("admin@example.com") 
                 .password(hashedPassword)
                 .role(Role.ADMIN)
                 .build();
         userRepository.save(admin);
     }
 
-    // under construction - irfan (24/9/2024)
     // Email validation method
     private boolean isValidEmail(String email) {
         if (email == null || email.isEmpty()) {

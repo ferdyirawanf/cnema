@@ -23,11 +23,9 @@ public class User extends Auditable implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
-    private String email; // irfan (24/9/2024)
-    //under construction - irfan (24/9/2024)
-        private String phone;
-        private String address;
-    // end
+    private String email; 
+    private String phone;
+    private String address;
     private String password;
     private Role role;
 
