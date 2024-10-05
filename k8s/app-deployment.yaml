@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cnema-app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: ferdyirawanf/cnema:1.0
+          ports:
+            - containerPort: 8080
+          env: # sesuaikan dengan applicaiton.properties
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: cnema-app-config
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: cnema-app-config
+                  key: DB_PORT
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: cnema-app-config
+                  key: DB_NAME
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: cnema-app-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cnema-app-secret
+                  key: DB_PASSWORD
+            - name: JWT_EXPIRATION
+              valueFrom:
+                configMapKeyRef:
+                  name: cnema-app-config
+                  key: JWT_EXPIRATION
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cnema-app-secret
+                  key: JWT_SECRET
+            - name: CLIENT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cnema-app-secret
+                  key: CLIENT_KEY
+            - name: SERVER_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cnema-app-secret
+                  key: SERVER_KEY
